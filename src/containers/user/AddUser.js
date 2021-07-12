@@ -5,6 +5,7 @@ import {
     StyleSheet,
 } from 'react-native';
 import { connect } from 'react-redux';
+import ValidationComponent from 'react-native-form-validator';
 
 import Actions from '../../actions';
 import AppButton from '../../components/button/AppButton';
@@ -12,13 +13,12 @@ import AppContainer from '../../components/common/AppContainer';
 import FormInput from '../../components/input/FormInput';
 import Styles from '../../constants/Styles';
 import NavigationService from '../../navigator/NavigationService';
-import { showSuccessYes } from '../../utils/AlertUtils';
+import { showAttention, showSuccessYes } from '../../utils/AlertUtils';
 
 const AddUser = (props) => {
     const [ fullName, setFullName ] = useState('');
     const [ username, setUsername ] = useState('');
     const [ email, setEmail ] = useState('');
-    const [ address, setAddress ] = useState('');
     const [ street, setStreet ] = useState('');
     const [ city, setCity ] = useState('');
     const [ suite, setSuite ] = useState('');
@@ -34,8 +34,7 @@ const AddUser = (props) => {
             setFullName('Alwin Pou');
             setUsername('siang1277');
             setEmail('weisiang91@gmail.com');
-            setAddress('1277');
-            setStreet('Jalan E4/9, Tmn Ehsan');
+            setStreet('1277, Jalan E4/9, Tmn Ehsan');
             setCity('Kepong');
             setZipcode('52100');
             setPhone('0162811714')
@@ -43,6 +42,7 @@ const AddUser = (props) => {
     }, []);
 
     const onSubmitPress = () => {
+        if(!isValid()) return;
         let data = {
             "name": fullName,
             "username": username,
@@ -67,6 +67,43 @@ const AddUser = (props) => {
         showSuccessYes('Add User Successful', () => {
             NavigationService.goBack();
         })
+    }
+
+    const isValid = () => {
+        let isValid = true;
+        let message = '';
+        if(!fullName) {
+            isValid = false;
+            message += 'Full name is required'
+        }
+        if(!username) {
+            isValid = false;
+            message += `${message.length > 0?'\n':''}Username is required`;
+        }
+        if(!email) {
+            isValid = false;
+            message += `${message.length > 0?'\n':''}Email is required`;
+        }
+        if(!phone) {
+            isValid = false;
+            message += `${message.length > 0?'\n':''}Phone is required`;
+        }
+        if(!street) {
+            isValid = false;
+            message += `${message.length > 0?'\n':''}Street is required`;
+        }
+        if(!city) {
+            isValid = false;
+            message += `${message.length > 0?'\n':''}City is required`;
+        }
+        if(!zipcode) {
+            isValid = false;
+            message += `${message.length > 0?'\n':''}Zipcode is required`;
+        }
+        if(!!message) {
+            showAttention(message);
+        }
+        return isValid;
     }
     
     return (
@@ -98,13 +135,6 @@ const AddUser = (props) => {
                 />
                 <FormInput
                     title={'Address'}
-                    placeholder={'Address'}
-                    value={address}
-                    onChangeText={(address) => setAddress(address)}
-                    containerStyle={{marginTop: Styles.w20}}
-                />
-                <FormInput
-                    // title={'Street'}
                     placeholder={'Street'}
                     value={street}
                     onChangeText={(street) => setStreet(street)}

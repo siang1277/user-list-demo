@@ -24,3 +24,7 @@ function showYes(title, message, yesText, onPress) {
 export function showSuccessYes(message, onPress){
     showYes('Success', message, 'Yes', onPress);
 }
+
+export function showAttention(message){
+    Alert.alert("Attention", message);
+}
