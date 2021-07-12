@@ -74,8 +74,8 @@ const UserDetails = (props) => {
                 />
                 <TitleValueView
                     title={'Website'}
-                    value={user.website}
-                    icon={faGlobe}
+                    value={!user.website?'-':user.website}
+                    icon={!user.website?null:faGlobe}
                     onPress={() => Linking.openURL(user.website)}
                     containerStyle={{marginTop: Styles.w20}}
                 />
