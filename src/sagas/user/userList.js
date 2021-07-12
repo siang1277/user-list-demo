@@ -1,13 +1,21 @@
 import { takeLatest, call, all, fork, put, } from 'redux-saga/effects';
 import Actions from '../../actions';
-// import * as api from '../../api';
+import * as api from '../../api';
+import { showError, showServerError } from '../../utils/AlertUtils';
+
 
 function* userList({ data }) {
-    // const { response } = yield call(api.userList, formData);
+    const { response, error } = yield call(api.userList);
 
-    // if (response) {
-        
-    // }
+    if (response) {
+        yield put(Actions.userListSuccess(response.data));
+        return;
+    } else if(error) {
+        showError(response.data.message)
+    } else {
+        showServerError();
+    }
+    yield put(Actions.userListFail());
 }
 
 function* watchUserList() {

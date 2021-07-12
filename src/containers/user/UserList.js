@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     View,
     Text,
 } from 'react-native';
+import { connect } from 'react-redux';
+
+import Actions from '../../actions';
 
 const UserList = (props) => {
+    useEffect(() => {
+        props.onUserList();
+    }, []);
+
     return (
         <View>
             <Text>User List</Text>
@@ -12,4 +19,12 @@ const UserList = (props) => {
     )
 }
 
-export default UserList;
+const mapStateToProps = store => ({
+    getUserListData: Actions.getUserListData(store),
+});
+
+const mapDispatchToProps = {
+    onUserList: Actions.userList,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserList);
