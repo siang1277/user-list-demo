@@ -35,6 +35,11 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.primary,
         justifyContent: 'center',
     },
+    actionContainer: {
+        flexDirection: 'row',
+        position: 'absolute', 
+        width: '100%',
+    },
     title: {
         fontSize: Styles.fs18,
         fontWeight: '500',

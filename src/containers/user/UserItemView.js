@@ -2,17 +2,20 @@ import React from 'react';
 import {
     View,
     Text,
+    TouchableOpacity,
     StyleSheet,
 } from 'react-native';
 import stc from 'string-to-color';
 import Colors from '../../constants/Colors';
 import Styles from '../../constants/Styles';
+import NavigationService from '../../navigator/NavigationService';
 
 const UserItemView = (props) => {
     let item = props.item;
     let marginTop = props.index === 0? Styles.w12 : 0;
     return (
-        <View style={[styles.container, {marginTop}]}>
+        <TouchableOpacity style={[styles.container, {marginTop}]}
+            onPress={() => NavigationService.navigate('UserDetails', {...item})}>
             <View style={[styles.singleContainer, {backgroundColor: stc(item.username)}]}>
                 <Text style={styles.single}>{item.username.charAt(0)}</Text>
             </View>
@@ -20,7 +23,7 @@ const UserItemView = (props) => {
                 <Text style={styles.username}>{item.username}</Text>
                 <Text style={styles.email}>{item.email}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
