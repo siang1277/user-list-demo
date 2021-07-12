@@ -78,27 +78,27 @@ const AddUser = (props) => {
         }
         if(!username) {
             isValid = false;
-            message += `${message.length > 0?'\n':''}Username is required`;
+            message += `${!!message?'\n':''}Username is required`;
         }
         if(!email) {
             isValid = false;
-            message += `${message.length > 0?'\n':''}Email is required`;
+            message += `${!!message?'\n':''}Email is required`;
         }
         if(!phone) {
             isValid = false;
-            message += `${message.length > 0?'\n':''}Phone is required`;
+            message += `${!!message?'\n':''}Phone is required`;
         }
         if(!street) {
             isValid = false;
-            message += `${message.length > 0?'\n':''}Street is required`;
+            message += `${!!message?'\n':''}Street is required`;
         }
         if(!city) {
             isValid = false;
-            message += `${message.length > 0?'\n':''}City is required`;
+            message += `${!!message?'\n':''}City is required`;
         }
         if(!zipcode) {
             isValid = false;
-            message += `${message.length > 0?'\n':''}Zipcode is required`;
+            message += `${!!message?'\n':''}Zipcode is required`;
         }
         if(!!message) {
             showAttention(message);
