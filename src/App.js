@@ -3,22 +3,21 @@ import {
     View,
     Text,
 } from 'react-native';
-// import { Provider } from 'react-redux';
-// import { PersistGate } from 'redux-persist/integration/react';
-// import configureStore from 'store/configureStore';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import configureStore from './store';
 
 import AppNavigator from './navigator/AppNavigator';
 
-// const { persistor, store } = configureStore();
+const { persistor, store } = configureStore();
 
 function App() {
     return (
-      <AppNavigator />
-        // <Provider store={store}>
-        //     <PersistGate loading={null} persistor={persistor}>
-        //         <AppNavigator />
-        //     </PersistGate>
-        // </Provider>
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <AppNavigator />
+            </PersistGate>
+        </Provider>
     );
 }
 
