@@ -46,7 +46,6 @@ const AppContainer = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: Styles.w16,
     }
 })
 

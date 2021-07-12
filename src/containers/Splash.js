@@ -1,18 +1,16 @@
 import React, { useEffect } from 'react';
 import {
     View,
-    Text,
     Image,
-    StyleSheet,
 } from 'react-native';
 import AppContainer from '../components/common/AppContainer';
 import NavigationService from '../navigator/NavigationService';
 
 const Splash = (props) => {
     useEffect(() => {
-        // setTimeout(() => {
-        //     NavigationService.reset('UserList')
-        // }, 100);
+        setTimeout(() => {
+            NavigationService.reset('UserList')
+        }, 100);
     }, [])
 
     return (

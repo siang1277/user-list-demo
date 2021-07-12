@@ -5,6 +5,13 @@ import {
 } from 'react-native-responsive-dimensions';
   
 export default {
+    shadow: {
+        shadowColor: 'rgba(0,0,0,0.4)',
+        shadowOffset: { width: 1, height: 1 },
+        shadowRadius: 6,
+        shadowOpacity: 0.3,
+        elevation: 4,
+    },
     fs80: responsiveFontSize(9.4744),
     fs79: responsiveFontSize(9.35597),
     fs78: responsiveFontSize(9.23754),

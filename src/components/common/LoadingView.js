@@ -8,7 +8,7 @@ import Colors from '../../constants/Colors';
 
 const LoadingView = (props) => {
 
-    let loadingColor = props.loadingColor?? Colors.primary;
+    let loadingColor = props.loadingColor?? Colors.primaryDark;
     if(props.showLoading)
         return (
             <View style={styles.container}>
