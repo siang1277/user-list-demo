@@ -3,8 +3,7 @@ import Actions from '../../actions';
 import * as api from '../../api';
 import { showError, showServerError } from '../../utils/AlertUtils';
 
-
-function* userList({ data }) {
+function* userList() {
     const { response, error } = yield call(api.userList);
 
     if (response) {

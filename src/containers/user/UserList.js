@@ -6,6 +6,7 @@ import {
 import { connect } from 'react-redux';
 
 import Actions from '../../actions';
+import AppContainer from '../../components/common/AppContainer';
 
 const UserList = (props) => {
     useEffect(() => {
@@ -13,9 +14,11 @@ const UserList = (props) => {
     }, []);
 
     return (
-        <View>
+        <AppContainer
+            toolbarTitle={'User List'}
+            >
             <Text>User List</Text>
-        </View>
+        </AppContainer>
     )
 }
 
