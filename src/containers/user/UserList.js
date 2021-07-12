@@ -1,13 +1,11 @@
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
-import {
-    View,
-    Text,
-} from 'react-native';
 import { connect } from 'react-redux';
 
 import Actions from '../../actions';
 import AppContainer from '../../components/common/AppContainer';
 import EmptyFlatList from '../../components/list/EmptyFlatList';
+import NavigationService from '../../navigator/NavigationService';
 import UserItemView from './UserItemView';
 
 const UserList = (props) => {
@@ -28,6 +26,8 @@ const UserList = (props) => {
     return (
         <AppContainer
             toolbarTitle={'User List'}
+            actionIcon={faUserPlus}
+            actionIconPress={() => NavigationService.navigate('AddUser')}
             fullScreenEnabled>
             <EmptyFlatList
                 data={userList}

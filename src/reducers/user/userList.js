@@ -14,7 +14,20 @@ function userList(state, action) {
                 error: null,
                 data: null,
             };
-
+        case Actions.ADD_USER:
+            let userList = state.data??[];
+            let latestId = 0;
+            userList.map((user) => {if(user.id > latestId) latestId = user.id});
+            let newUser = {
+                id: latestId + 1,
+                ...action.data,
+            }
+            userList.push(newUser);
+            return {
+                isLoading: false,
+                error: null,
+                data: userList,
+            };
         case Actions.USER_LIST_SUCCESS:
             return {
                 isLoading: false,

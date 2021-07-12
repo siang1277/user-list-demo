@@ -7,6 +7,8 @@ import { navigationRef } from '../navigator/NavigationService';
 import Splash from '../containers/Splash';
 import UserList from '../containers/user/UserList';
 import UserDetails from '../containers/user/UserDetails';
+import AddUser from '../containers/user/AddUser';
+
 
 const Stack = createStackNavigator();
 
@@ -18,6 +20,7 @@ function AppNavigator() {
                 <Stack.Screen name="Splash" component={Splash} />
                 <Stack.Screen name="UserList" component={UserList} />
                 <Stack.Screen name="UserDetails" component={UserDetails} />
+                <Stack.Screen name="AddUser" component={AddUser} />
             </Stack.Navigator>
         </NavigationContainer>
     )

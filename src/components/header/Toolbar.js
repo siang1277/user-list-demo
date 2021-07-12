@@ -21,7 +21,7 @@ const Toolbar = React.memo((props) => {
                 <View style={{flex: 1}}/>
                 {props.actionIcon &&
                     <TouchableOpacity style={styles.iconContainer} onPress={props.actionIconPress}>
-                        <FontAwesomeIcon style={{color: Colors.white}} size={Styles.w18} icon={ props.actionIcon } />                
+                        <FontAwesomeIcon style={{color: Colors.white}} size={Styles.w24} icon={ props.actionIcon } />                
                     </TouchableOpacity>
                 }
             </View>

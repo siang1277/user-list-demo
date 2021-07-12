@@ -3,7 +3,8 @@ export function getCompany(company) {
 }
 
 export function getAddress(address) {
-    return `${address.suite}, ${address.street}, ${address.city}, ${address.zipcode}`
+    let suite = address.suite? `${address.suite}, `:'';
+    return `${suite}${address.street}, ${address.city}, ${address.zipcode}`
 }
 
 export function getGeoLocation(address) {
