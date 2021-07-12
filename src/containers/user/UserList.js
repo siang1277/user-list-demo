@@ -18,8 +18,8 @@ const UserList = (props) => {
 
     useEffect(() => {
         const { isLoading, data } = props.getUserListData;
-        setLoading(isLoading);
         if(data) setUserList(data);
+        setLoading(isLoading);
 
     }, [props.getUserListData])
 

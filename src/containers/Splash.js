@@ -10,7 +10,7 @@ const Splash = (props) => {
     useEffect(() => {
         setTimeout(() => {
             NavigationService.reset('UserList')
-        }, 100);
+        }, 1000);
     }, [])
 
     return (
@@ -19,6 +19,7 @@ const Splash = (props) => {
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                 <Image
                     source={require('../assets/images/app_logo_text.png')}
+                    style={{width: '90%'}}
                     resizeMode={'center'}
                 />
             </View>

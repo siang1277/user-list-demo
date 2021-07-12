@@ -145,7 +145,6 @@
 				C97AA65376E228708B35132D /* Pods-maybank_assessment-maybank_assessmentTests.debug.xcconfig */,
 				A098DEA7D58B143F84A8B715 /* Pods-maybank_assessment-maybank_assessmentTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
